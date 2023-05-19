@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallWrapper : MonoBehaviour
+public class Wrapper : MonoBehaviour
 {
     private float worldWidth = 0;
     private float worldHeight = 0;
