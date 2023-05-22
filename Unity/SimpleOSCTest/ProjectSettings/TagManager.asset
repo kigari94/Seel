@@ -7,6 +7,8 @@ TagManager:
   - Ball
   - Left
   - Right
+  - OuterWallTop
+  - OuterWallBottom
   layers:
   - Default
   - TransparentFX
