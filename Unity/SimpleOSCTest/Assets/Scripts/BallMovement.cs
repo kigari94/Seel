@@ -54,12 +54,12 @@ public class BallMovement : MonoBehaviour
         if(player == "PlayerOne")
         {
             scorePlayerOne += score;
-            scoreTxtPlayerOne.text = scorePlayerOne.ToString("0000");
+            scoreTxtPlayerOne.text = "Score: " + scorePlayerOne.ToString("0000");
         }
         else
         {
             scorePlayerTwo += score;
-            scoreTxtPlayerTwo.text = scorePlayerTwo.ToString("0000");
+            scoreTxtPlayerTwo.text = "Score: " + scorePlayerTwo.ToString("0000");
         }
     }
 
