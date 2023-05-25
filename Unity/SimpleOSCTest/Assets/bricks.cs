@@ -17,8 +17,7 @@ public class bricks : MonoBehaviour
 
     void Start()
     {
-        GameObject parent = GameObject.Find("Bricks");
-        initPos = parent.transform.position;
+        initPos = transform.position;
 
         for (int i = 0; i < 3; i++)
         {
@@ -41,7 +40,7 @@ public class bricks : MonoBehaviour
                 GameObject brick = Instantiate(brickPrefab, pos, Quaternion.identity) as GameObject;
                 brick.GetComponent<SpriteRenderer>().color = currentColor;
                 brick.tag = currentRowTag;
-                brick.transform.parent = parent.transform;
+                brick.transform.parent = gameObject.transform;
             }
         }
     }
