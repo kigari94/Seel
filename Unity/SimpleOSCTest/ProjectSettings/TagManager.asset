@@ -9,6 +9,9 @@ TagManager:
   - Right
   - OuterWallTop
   - OuterWallBottom
+  - BrickTopOne
+  - BrickTopTwo
+  - BrickTopThree
   layers:
   - Default
   - TransparentFX

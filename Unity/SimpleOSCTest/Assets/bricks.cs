@@ -23,13 +23,16 @@ public class bricks : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Color currentColor = Row1;
+            string currentRowTag = "BrickTopOne";
             if (i == 1)
             {
                 currentColor = Row2;
+                currentRowTag = "BrickTopTwo";
             }
             else if (i == 2)
             {
                 currentColor = Row3;
+                currentRowTag = "BrickTopThree";
             }
 
             for (int j = 0; j < columns; j++)
@@ -37,6 +40,7 @@ public class bricks : MonoBehaviour
                 Vector3 pos = new Vector3(initPos.x + (j * gapX), initPos.y - (gapY * i), initPos.z);
                 GameObject brick = Instantiate(brickPrefab, pos, Quaternion.identity) as GameObject;
                 brick.GetComponent<SpriteRenderer>().color = currentColor;
+                brick.tag = currentRowTag;
                 brick.transform.parent = parent.transform;
             }
         }
