@@ -7,9 +7,9 @@ public class Wrapper : MonoBehaviour
     private float worldWidth = 0;
     private float worldHeight = 0;
 
-    void Start()
+    void Start() 
     {
-        Camera cam = GameObject.Find("SceneCamera").GetComponent<Camera>();
+        Camera cam = GameObject.Find("MainCamera").GetComponent<Camera>();
         float aspect = (float)cam.pixelRect.width / cam.pixelRect.height;
         worldHeight = cam.orthographicSize * 2;
         worldWidth = worldHeight * aspect;
