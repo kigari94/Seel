@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 715577000}
   - component: {fileID: 715577001}
   m_Layer: 0
-  m_Name: Bricks
+  m_Name: Bricks top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc99af5debd84caa995a0202d9c5389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rowPosition: 0
   brickPrefab: {fileID: 6941159410551499229, guid: d05b6ce5c23bb4f4e9f05eaecf3496a4, type: 3}
   gapY: 0.5
   gapX: 1.79
@@ -981,7 +982,7 @@ GameObject:
   - component: {fileID: 940219812}
   - component: {fileID: 940219811}
   m_Layer: 0
-  m_Name: Bricks
+  m_Name: Bricks bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,6 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc99af5debd84caa995a0202d9c5389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rowPosition: 1
   brickPrefab: {fileID: 6941159410551499229, guid: d05b6ce5c23bb4f4e9f05eaecf3496a4, type: 3}
   gapY: 0.5
   gapX: 1.79

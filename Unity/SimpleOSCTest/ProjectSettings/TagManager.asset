@@ -12,6 +12,9 @@ TagManager:
   - BrickTopOne
   - BrickTopTwo
   - BrickTopThree
+  - BrickBottomOne
+  - BrickBottomTwo
+  - BrickBottomThree
   layers:
   - Default
   - TransparentFX

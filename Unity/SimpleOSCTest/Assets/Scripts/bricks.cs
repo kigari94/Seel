@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class bricks : MonoBehaviour
 {
-    [SerializeField] private GameObject brickPrefab;
-    [SerializeField] private float gapY = 0.5f;
-    [SerializeField] private float gapX = 2f;
-    [SerializeField] private float columns = 20;
-
-    [SerializeField] private Color Row1;
-    [SerializeField] private Color Row2;
-    [SerializeField] private Color Row3;
+    public enum RowPosition
+    {
+        TopRow, 
+        BottomRow
+    }
+    [SerializeField] private RowPosition    rowPosition;
+    [SerializeField] private GameObject     brickPrefab;
+    [SerializeField] private float          gapY = 0.5f;
+    [SerializeField] private float          gapX = 2f;
+    [SerializeField] private float          columns = 20;
+    [SerializeField] private Color          Row1;
+    [SerializeField] private Color          Row2;
+    [SerializeField] private Color          Row3;
 
     private Vector3 initPos = new Vector3(0, 0, 0);
 
@@ -22,16 +27,16 @@ public class bricks : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Color currentColor = Row1;
-            string currentRowTag = "BrickTopOne";
+            string currentRowTag = rowPosition == RowPosition.TopRow ? "BrickTopOne" : "BrickBottomOne";
             if (i == 1)
             {
                 currentColor = Row2;
-                currentRowTag = "BrickTopTwo";
+                currentRowTag = rowPosition == RowPosition.TopRow ? "BrickTopTwo" : "BrickBottomTwo";
             }
             else if (i == 2)
             {
                 currentColor = Row3;
-                currentRowTag = "BrickTopThree";
+                currentRowTag = rowPosition == RowPosition.BottomRow ? "BrickTopThree" : "BrickBottomThree";
             }
 
             for (int j = 0; j < columns; j++)
