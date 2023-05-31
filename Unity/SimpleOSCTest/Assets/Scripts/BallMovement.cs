@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 public class BallMovement : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class BallMovement : MonoBehaviour
     private float hitCounter = 0;
     private int scorePlayerOne = 0;
     private int scorePlayerTwo = 0;
+
+    List<string> lastHit = new List<string>();
+
     private Rigidbody2D rigidBody;
     public TextMeshProUGUI scoreTxtPlayerOne;
     public TextMeshProUGUI scoreTxtPlayerTwo;
@@ -20,7 +24,6 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        //StartCoroutine(Launch());
     }
 
     
@@ -28,6 +31,7 @@ public class BallMovement : MonoBehaviour
     {
         float ballSpeedFaster = startSpeed + hitCounter * extraSpeed;
         rigidBody.velocity *= ballSpeedFaster;
+        //Debug.Log("Velocity: " + rigidBody.velocity);
     }
 
     public void IncreaseHitCounter()
@@ -40,13 +44,21 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    public void DecreaseHitCounter()
+    public void DecreaseHitCounter(string wall)
     {
-        if(hitCounter * extraSpeed >= startSpeed)
+        if(lastHit.Count == 0)
+        {
+            return;
+        }
+
+        if(hitCounter * extraSpeed >= startSpeed && lastHit.First() != wall)
         {
             hitCounter--;
             BallMove();
+            //Debug.Log("Last hit: " + lastHit.First() + "Current hit: " + wall);
         }
+
+        lastHit.RemoveAt(0);
     }
 
     public void UpdateScore(string player, int score)
@@ -63,10 +75,17 @@ public class BallMovement : MonoBehaviour
         }
     }
 
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string collisionObject = collision.gameObject.tag;
-        Debug.Log(collisionObject);
+        
+        //string lastHit;
+        //Debug.Log(collisionObject);
 
         switch (collisionObject)
         {
@@ -76,42 +95,59 @@ public class BallMovement : MonoBehaviour
             case "BrickTopOne":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 5);
-                // decrease Speed if y < 0 (Coroutine) oder State via Setter
+                DecreaseHitCounter("top");
+                lastHit.Add("top");
                 break;
             case "BrickBottomOne":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 5);
+                DecreaseHitCounter("bottom");
+                lastHit.Add("bottom");
                 break;
             case "BrickTopTwo":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 10);
+                DecreaseHitCounter("top");
+                lastHit.Add("top");
                 break;
             case "BrickBottomTwo":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 10);
+                DecreaseHitCounter("bottom");
+                lastHit.Add("bottom");
                 break;
             case "BrickTopThree":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 15);
+                DecreaseHitCounter("top");
+                lastHit.Add("top");
                 break;
             case "BrickBottomThree":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 15);
+                DecreaseHitCounter("bottom");
+                lastHit.Add("bottom");
                 break;
             case "BrickTopFour":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 20);
+                DecreaseHitCounter("top");
+                lastHit.Add("top");
                 break;
             case "BrickBottomFour":
                 Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 20);
+                DecreaseHitCounter("bottom");
+                lastHit.Add("bottom");
                 break;
             case "OuterWallTop":
                 UpdateScore("PlayerOne", 50);
+                //PauseGame();
                 // end game
                 break;
             case "OuterWallBottom":
                 UpdateScore("PlayerTwo", 50);
+                //PauseGame();
                 // end game
                 break;
         }
