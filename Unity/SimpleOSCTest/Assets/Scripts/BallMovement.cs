@@ -9,6 +9,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float startSpeed;
     [SerializeField] private float extraSpeed;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float gravity = 1.0f;
     
     private float hitCounter = 0;
     private int scorePlayerOne = 0;
@@ -26,7 +27,14 @@ public class BallMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    
+    void Update() {
+        if (transform.position.y > 0) {
+            rigidBody.gravityScale = 0.5f + (gravity * transform.position.y) * 0.3f;
+        } else {
+            rigidBody.gravityScale = -0.5f + (-gravity * -transform.position.y) * 0.3f;
+        }
+    }
+
     public void BallMove()
     {
         float ballSpeedFaster = startSpeed + hitCounter * extraSpeed;
