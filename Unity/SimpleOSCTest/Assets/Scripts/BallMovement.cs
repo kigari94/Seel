@@ -17,6 +17,7 @@ public class BallMovement : MonoBehaviour
 
     List<string> lastHit = new List<string>();
 
+    private Vector2 direction;
     private Rigidbody2D rigidBody;
     public TextMeshProUGUI scoreTxtPlayerOne;
     public TextMeshProUGUI scoreTxtPlayerTwo;
@@ -25,12 +26,33 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        direction = CreateVector2ByDegree(45);
     }
 
-    void Update() {
-        if (transform.position.y > 0) {
+    void FixedUpdate() 
+    {
+        SwitchGravity();
+        Vector2 movement = direction * startSpeed;
+        rigidBody.velocity = movement;
+    }
+
+    private Vector2 CreateVector2ByDegree(float degrees)
+    {
+        var angle = degrees * Mathf.Deg2Rad;
+        var x = Mathf.Cos(angle);
+        var y = Mathf.Sin(angle);
+
+        return new Vector2(x, y);
+    }
+
+    private void SwitchGravity()
+    {
+        if (transform.position.y > 0)
+        {
             rigidBody.gravityScale = 0.5f + (gravity * transform.position.y) * 0.3f;
-        } else {
+        }
+        else
+        {
             rigidBody.gravityScale = -0.5f + (-gravity * -transform.position.y) * 0.3f;
         }
     }
@@ -90,6 +112,9 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 normal = collision.GetContact(0).normal;
+        Vector2 reflection = Vector2.Reflect(direction, normal);
+        direction = reflection;
         string collisionObject = collision.gameObject.tag;
         
         //string lastHit;
