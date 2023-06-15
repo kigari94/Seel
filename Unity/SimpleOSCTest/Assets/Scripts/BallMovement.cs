@@ -57,7 +57,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    public void BallMove()
+    public void BallSpeed()
     {
         float ballSpeedFaster = startSpeed + hitCounter * extraSpeed;
         rigidBody.velocity *= ballSpeedFaster;
@@ -69,7 +69,7 @@ public class BallMovement : MonoBehaviour
         if(hitCounter * extraSpeed <= maxSpeed)
         {
             hitCounter++;
-            BallMove();
+            BallSpeed();
             //Debug.Log(hitCounter);
         }
     }
@@ -84,7 +84,7 @@ public class BallMovement : MonoBehaviour
         if(hitCounter * extraSpeed >= startSpeed && lastHit.First() != wall)
         {
             hitCounter--;
-            BallMove();
+            BallSpeed();
             //Debug.Log("Last hit: " + lastHit.First() + "Current hit: " + wall);
         }
 
