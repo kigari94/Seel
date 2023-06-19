@@ -933,9 +933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7451938627fd04429b1b51891f814dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 0.5
+  startSpeed: 6
   extraSpeed: 0.5
   maxSpeed: 0.8
+  gravity: 1
   scoreTxtPlayerOne: {fileID: 1968297927}
   scoreTxtPlayerTwo: {fileID: 916875475}
 --- !u!114 &782495540
