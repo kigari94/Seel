@@ -9,6 +9,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float startSpeed;
     [SerializeField] private float extraSpeed;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float gravity = 1.0f;
     
     private float hitCounter = 0;
     private int scorePlayerOne = 0;
@@ -16,6 +17,7 @@ public class BallMovement : MonoBehaviour
 
     List<string> lastHit = new List<string>();
 
+    private Vector2 direction;
     private Rigidbody2D rigidBody;
     public TextMeshProUGUI scoreTxtPlayerOne;
     public TextMeshProUGUI scoreTxtPlayerTwo;
@@ -24,10 +26,38 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        direction = CreateVector2ByDegree(45);
     }
 
-    
-    public void BallMove()
+    void FixedUpdate() 
+    {
+        SwitchGravity();
+        Vector2 movement = direction * startSpeed;
+        rigidBody.velocity = movement;
+    }
+
+    private Vector2 CreateVector2ByDegree(float degrees)
+    {
+        var angle = degrees * Mathf.Deg2Rad;
+        var x = Mathf.Cos(angle);
+        var y = Mathf.Sin(angle);
+
+        return new Vector2(x, y);
+    }
+
+    private void SwitchGravity()
+    {
+        if (transform.position.y > 0)
+        {
+            rigidBody.gravityScale = 0.5f + (gravity * transform.position.y) * 0.3f;
+        }
+        else
+        {
+            rigidBody.gravityScale = -0.5f + (-gravity * -transform.position.y) * 0.3f;
+        }
+    }
+
+    public void BallSpeed()
     {
         float ballSpeedFaster = startSpeed + hitCounter * extraSpeed;
         rigidBody.velocity *= ballSpeedFaster;
@@ -39,7 +69,7 @@ public class BallMovement : MonoBehaviour
         if(hitCounter * extraSpeed <= maxSpeed)
         {
             hitCounter++;
-            BallMove();
+            BallSpeed();
             //Debug.Log(hitCounter);
         }
     }
@@ -54,7 +84,7 @@ public class BallMovement : MonoBehaviour
         if(hitCounter * extraSpeed >= startSpeed && lastHit.First() != wall)
         {
             hitCounter--;
-            BallMove();
+            BallSpeed();
             //Debug.Log("Last hit: " + lastHit.First() + "Current hit: " + wall);
         }
 
@@ -82,6 +112,9 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 normal = collision.GetContact(0).normal;
+        Vector2 reflection = Vector2.Reflect(direction, normal);
+        direction = reflection;
         string collisionObject = collision.gameObject.tag;
         
         //string lastHit;
