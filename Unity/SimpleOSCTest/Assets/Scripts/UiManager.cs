@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
@@ -40,5 +41,15 @@ public class UiManager : MonoBehaviour
         pauseScreen.SetActive(false);
         ingameUI.SetActive(true);
         game.SetActive(true);
+    }
+
+    public void initGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
