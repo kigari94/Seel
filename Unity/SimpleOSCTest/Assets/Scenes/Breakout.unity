@@ -172,10 +172,16 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.79569346, y: -0.013440631}
-  - {x: -0.3556897, y: 0.06701353}
-  - {x: 0.30557692, y: 0.06770185}
-  - {x: 0.81585443, y: -0.013440571}
+  - {x: 0.007012725, y: -0.10787669}
+  - {x: -0.49256563, y: -0.11109522}
+  - {x: -0.9714925, y: 0.0015808046}
+  - {x: -0.41471225, y: 0.102427095}
+  - {x: 0.07562095, y: 0.10282132}
+  - {x: 0.36464107, y: 0.1030537}
+  - {x: 0.4980309, y: 0.08065665}
+  - {x: 0.96118027, y: 0.00435818}
+  - {x: 0.49136826, y: -0.103145614}
+  - {x: 0.030855179, y: -0.10197443}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -221,7 +227,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a42d89dd683b84b13aae46106c071cae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4ac4361e6e7049c08e517077fc86ba4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,8 +246,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1392.1783, y: -566.8098, z: 21.714844}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalPosition: {x: -1392.3033, y: -566.8098, z: 21.714844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1171135328}
