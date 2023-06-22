@@ -126,49 +126,41 @@ public class BallMovement : MonoBehaviour
                 IncreaseHitCounter();
                 break;
             case "BrickTopOne":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 5);
                 DecreaseHitCounter("top");
                 lastHit.Add("top");
                 break;
             case "BrickBottomOne":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 5);
                 DecreaseHitCounter("bottom");
                 lastHit.Add("bottom");
                 break;
             case "BrickTopTwo":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 10);
                 DecreaseHitCounter("top");
                 lastHit.Add("top");
                 break;
             case "BrickBottomTwo":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 10);
                 DecreaseHitCounter("bottom");
                 lastHit.Add("bottom");
                 break;
             case "BrickTopThree":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 15);
                 DecreaseHitCounter("top");
                 lastHit.Add("top");
                 break;
             case "BrickBottomThree":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 15);
                 DecreaseHitCounter("bottom");
                 lastHit.Add("bottom");
                 break;
             case "BrickTopFour":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerOne", 20);
                 DecreaseHitCounter("top");
                 lastHit.Add("top");
                 break;
             case "BrickBottomFour":
-                Destroy(collision.gameObject);
                 UpdateScore("PlayerTwo", 20);
                 DecreaseHitCounter("bottom");
                 lastHit.Add("bottom");

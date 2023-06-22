@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21bbc5be8cc54c15a91092e4af1ed92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  once: 1
 --- !u!198 &-3862465241341306299
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -1070,7 +1071,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 60
+        scalar: 30
         minScalar: 30
         maxCurve:
           serializedVersion: 2
