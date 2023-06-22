@@ -15,12 +15,18 @@ public class BallMovement : MonoBehaviour
     private int scorePlayerOne = 0;
     private int scorePlayerTwo = 0;
 
+    private AudioSource source;
+
     List<string> lastHit = new List<string>();
 
     private Vector2 direction;
     private Rigidbody2D rigidBody;
     public TextMeshProUGUI scoreTxtPlayerOne;
     public TextMeshProUGUI scoreTxtPlayerTwo;
+
+    void Awake() {
+        source = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -119,6 +125,8 @@ public class BallMovement : MonoBehaviour
         
         //string lastHit;
         //Debug.Log(collisionObject);
+
+        source.Play();
 
         switch (collisionObject)
         {
