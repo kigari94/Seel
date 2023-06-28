@@ -19,6 +19,7 @@ public class bricks : MonoBehaviour
     [SerializeField] private Color          Row3;
 
     private Vector3 initPos = new Vector3(0, 0, 0);
+    private ParticleSystem ps;
 
     void Start()
     {
@@ -44,6 +45,9 @@ public class bricks : MonoBehaviour
                 Vector3 pos = new Vector3(initPos.x + (j * gapX), initPos.y - (gapY * i), initPos.z);
                 GameObject brick = Instantiate(brickPrefab, pos, Quaternion.identity) as GameObject;
                 brick.GetComponent<SpriteRenderer>().color = currentColor;
+                ps = brick.GetComponent<ParticleSystem>();
+                var main = ps.main;
+                main.startColor = currentColor;
                 brick.tag = currentRowTag;
                 brick.transform.parent = gameObject.transform;
             }
