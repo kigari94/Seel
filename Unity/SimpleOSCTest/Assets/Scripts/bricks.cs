@@ -6,17 +6,17 @@ public class bricks : MonoBehaviour
 {
     public enum RowPosition
     {
-        TopRow, 
+        TopRow,
         BottomRow
     }
-    [SerializeField] private RowPosition    rowPosition;
-    [SerializeField] private GameObject     brickPrefab;
-    [SerializeField] private float          gapY = 0.5f;
-    [SerializeField] private float          gapX = 2f;
-    [SerializeField] private float          columns = 20;
-    [SerializeField] private Color          Row1;
-    [SerializeField] private Color          Row2;
-    [SerializeField] private Color          Row3;
+    [SerializeField] private RowPosition rowPosition;
+    [SerializeField] private GameObject brickPrefab;
+    [SerializeField] private float gapY = 0.5f;
+    [SerializeField] private float gapX = 2f;
+    [SerializeField] private float columns = 20;
+    [SerializeField] private Color Row1;
+    [SerializeField] private Color Row2;
+    [SerializeField] private Color Row3;
 
     private Vector3 initPos = new Vector3(0, 0, 0);
     private ParticleSystem ps;
@@ -24,6 +24,10 @@ public class bricks : MonoBehaviour
     void Start()
     {
         initPos = transform.position;
+
+        float brickWidth = brickPrefab.GetComponent<SpriteRenderer>().bounds.size.x;
+        float xOffset = 0f;
+        int extraBrick = 0;
 
         for (int i = 0; i < 3; i++)
         {
@@ -40,9 +44,20 @@ public class bricks : MonoBehaviour
                 currentRowTag = rowPosition == RowPosition.BottomRow ? "BrickTopThree" : "BrickBottomThree";
             }
 
-            for (int j = 0; j < columns; j++)
+            if (i % 2 == 0)
             {
-                Vector3 pos = new Vector3(initPos.x + (j * gapX), initPos.y - (gapY * i), initPos.z);
+                xOffset = 0f;
+                extraBrick = 0;
+            }
+            else
+            {
+                xOffset = (brickWidth + gapX) / 2;
+                extraBrick = 1;
+            }
+
+            for (int j = 0; j < columns + extraBrick; j++)
+            {
+                Vector3 pos = new Vector3(initPos.x + (j * (brickWidth + gapX)) - xOffset, initPos.y - (gapY * i), initPos.z);
                 GameObject brick = Instantiate(brickPrefab, pos, Quaternion.identity) as GameObject;
                 brick.GetComponent<SpriteRenderer>().color = currentColor;
                 ps = brick.GetComponent<ParticleSystem>();
