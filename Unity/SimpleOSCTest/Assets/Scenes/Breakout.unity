@@ -420,7 +420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1697575201}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: ResumeGame
+        m_MethodName: openOptionsPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
