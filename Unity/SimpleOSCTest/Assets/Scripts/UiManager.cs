@@ -17,6 +17,8 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
         soundToggle = GameObject.Find("SoundToggle").GetComponent<Toggle>();
         soundToggle.isOn = soundEnabled;
         audioListener = GameObject.Find("MainCamera").GetComponent<AudioListener>();
