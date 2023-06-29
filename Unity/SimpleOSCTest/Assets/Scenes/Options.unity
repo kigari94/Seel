@@ -965,7 +965,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1697575201}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: toggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1602039129
 GameObject:
@@ -980,7 +992,7 @@ GameObject:
   - component: {fileID: 1602039132}
   - component: {fileID: 1602039131}
   m_Layer: 5
-  m_Name: StartScreen
+  m_Name: OptionsScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,6 +1128,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 0}
   ingameUI: {fileID: 0}
   game: {fileID: 0}
+  audioListener: {fileID: 0}
 --- !u!1 &1732748962
 GameObject:
   m_ObjectHideFlags: 0
