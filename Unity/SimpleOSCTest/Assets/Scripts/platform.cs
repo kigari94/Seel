@@ -5,6 +5,8 @@ using UnityEngine;
 public class platform : MonoBehaviour
 {
     [SerializeField] private float speed = 10.0f;
+    [SerializeField] private int player;
+    [SerializeField] private bool tracking = false;
     private float y = 0;
     private float z = 0;
 
@@ -19,5 +21,15 @@ public class platform : MonoBehaviour
         float translation = Input.GetAxis("Horizontal") * speed;
         translation *= Time.deltaTime;
         transform.Translate(translation, 0, 0);
+
+        if(tracking)
+        {
+            PlayerMove();
+        }
+    }
+
+    private void PlayerMove()
+    {
+        transform.Translate(kinectValue, 0, 0);
     }
 }
