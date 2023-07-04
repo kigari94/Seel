@@ -28,12 +28,14 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && running)
+        if (Input.GetButtonDown("Cancel") && running)
         {
             PauseGame();
-        } else if (Input.GetKeyDown(KeyCode.Escape) && !running) {
-            ResumeGame();
         }
+        else if (Input.GetButtonDown("Cancel") && !running)
+        {
+            ResumeGame();
+        }   
     }
 
     public void PauseGame()
@@ -68,7 +70,8 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void openOptionsIngame() {
+    public void openOptionsIngame()
+    {
         optionsScreen.SetActive(true);
         running = false;
         pauseScreen.SetActive(false);
@@ -81,12 +84,16 @@ public class UiManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void toggleSound() {
-        if (soundEnabled) {
+    public void toggleSound()
+    {
+        if (soundEnabled)
+        {
             soundEnabled = false;
             audioListener.enabled = false;
             soundToggle.isOn = false;
-        } else {
+        }
+        else
+        {
             soundEnabled = true;
             audioListener.enabled = true;
             soundToggle.isOn = true;
