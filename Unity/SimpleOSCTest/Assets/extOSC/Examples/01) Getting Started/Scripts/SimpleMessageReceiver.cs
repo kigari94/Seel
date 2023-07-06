@@ -30,6 +30,7 @@ namespace extOSC.Examples
         {
             Debug.LogFormat("Received: {0}", message);
 			float value = float.Parse(message.Values[0].StringValue);
+			value = value / 1000000;
 			Debug.Log(value);
             transform.position = new Vector3(value, transform.position.y, transform.position.z);
         }
