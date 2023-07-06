@@ -30,9 +30,9 @@ namespace extOSC.Examples
         {
             Debug.LogFormat("Received: {0}", message);
 			float value = float.Parse(message.Values[0].StringValue);
-			value = value / 10000000;
+			value = value / 100000000;
 			Debug.Log(value);
-            transform.Translate(value, transform.position.y, transform.position.z);
+            transform.Translate(value, 0, 0);
         }
 
         #endregion
