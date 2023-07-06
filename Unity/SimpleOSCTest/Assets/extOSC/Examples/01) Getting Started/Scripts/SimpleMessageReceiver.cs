@@ -37,8 +37,11 @@ namespace extOSC.Examples
             string valueString = message.Values[0].StringValue;
             float value = (float) Convert.ToDouble(valueString, CultureInfo.GetCultureInfo("en-US")) + offset;
 			Debug.Log(value);
-            transform.position = initPos + new Vector3((value * 10),0,0);
-            Debug.Log("Result: " + transform.position);
+            if(value != 0.0f)
+            {
+                transform.position = initPos + new Vector3((value * 10), 0, 0);
+                Debug.Log("Result: " + transform.position);
+            }
         }
 
         #endregion
