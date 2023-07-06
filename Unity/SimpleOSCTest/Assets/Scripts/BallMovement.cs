@@ -39,7 +39,7 @@ public class BallMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        SwitchGravity();
+        //SwitchGravity();
         Vector2 movement = direction * startSpeed;
         rigidBody.velocity = movement;
     }
