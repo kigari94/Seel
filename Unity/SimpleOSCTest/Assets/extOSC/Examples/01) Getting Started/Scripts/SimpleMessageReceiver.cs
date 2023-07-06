@@ -29,8 +29,8 @@ namespace extOSC.Examples
         private void ReceivedMessage(OSCMessage message)
         {
             Debug.LogFormat("Received: {0}", message);
-			Debug.Log(float.Parse(message.Values[0].StringValue));
-            transform.position = new Vector3(1, transform.position.y, transform.position.z);
+			float value = float.Parse(message.Values[0].StringValue);
+            transform.position = new Vector3(value, transform.position.y, transform.position.z);
         }
 
         #endregion
