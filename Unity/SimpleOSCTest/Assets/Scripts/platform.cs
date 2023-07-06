@@ -6,7 +6,6 @@ public class platform : MonoBehaviour
 {
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private int player;
-    [SerializeField] private bool tracking = false;
     private float y = 0;
     private float z = 0;
     float translation = 0;
@@ -18,20 +17,8 @@ public class platform : MonoBehaviour
     }
 
     void Update()
-    {
-        if(tracking)
-        {
-            PlayerMove();
-        }
-        else
-        {
-            InputMove(player);
-        }
-    }
-
-    private void PlayerMove()
-    {
-        //transform.Translate(kinectValue, 0, 0);
+    { 
+        InputMove(player);
     }
 
     private void InputMove(int player)
