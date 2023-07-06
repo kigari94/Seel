@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class UiManager : MonoBehaviour
     public GameObject ingameUI;
     public GameObject optionsScreen;
     public GameObject game;
+    public GameObject pauseMenuFirstSelected, optionsMenuFirstSelected;
+
     private AudioListener audioListener;
     private Toggle soundToggle;
     private bool running = true;
@@ -44,6 +47,8 @@ public class UiManager : MonoBehaviour
         pauseScreen.SetActive(true);
         ingameUI.SetActive(false);
         game.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseMenuFirstSelected);
     }
 
     public void ResumeGame()
@@ -77,6 +82,8 @@ public class UiManager : MonoBehaviour
         pauseScreen.SetActive(false);
         ingameUI.SetActive(false);
         game.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionsMenuFirstSelected);
     }
 
     public void quitGame()
