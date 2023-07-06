@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float extraSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float gravity = 1.0f;
+    [SerializeField] private float maxScore = 10;
     
     private float hitCounter = 0;
-    private int scorePlayerOne = 0;
-    private int scorePlayerTwo = 0;
+    public static int scorePlayerOne = 0;
+    public static int scorePlayerTwo = 0;
 
     private AudioSource source;
 
@@ -101,11 +103,19 @@ public class BallMovement : MonoBehaviour
     {
         if(player == "PlayerOne")
         {
+            if(scorePlayerOne >= maxScore)
+            {
+                SceneManager.LoadScene(3);
+            }
             scorePlayerOne += score;
             scoreTxtPlayerOne.text = "Score: " + scorePlayerOne.ToString("0000");
         }
         else
         {
+            if(scorePlayerTwo >= maxScore)
+            {
+                SceneManager.LoadScene(3);
+            }
             scorePlayerTwo += score;
             scoreTxtPlayerTwo.text = "Score: " + scorePlayerTwo.ToString("0000");
         }

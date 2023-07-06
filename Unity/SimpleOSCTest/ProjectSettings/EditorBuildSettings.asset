@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 006e2712bb9c847eda9588ba05a30c36
+  - enabled: 1
+    path: Assets/Scenes/WinningScreen.unity
+    guid: 52318f89ae2ad4ed69989be53051fe1d
   m_configObjects: {}
