@@ -32,7 +32,7 @@ public class bricks : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Color currentColor = Row1;
-            string currentRowTag = rowPosition == RowPosition.TopRow ? "BrickTopOne" : "BrickBottomOne";
+            string currentRowTag = rowPosition == RowPosition.TopRow ? "BrickTopThree" : "BrickBottomOne";
             if (i == 1)
             {
                 currentColor = Row2;
@@ -41,7 +41,7 @@ public class bricks : MonoBehaviour
             else if (i == 2)
             {
                 currentColor = Row3;
-                currentRowTag = rowPosition == RowPosition.BottomRow ? "BrickTopThree" : "BrickBottomThree";
+                currentRowTag = rowPosition == RowPosition.TopRow ? "BrickTopOne" : "BrickBottomThree";
             }
 
             if (i % 2 == 0)
