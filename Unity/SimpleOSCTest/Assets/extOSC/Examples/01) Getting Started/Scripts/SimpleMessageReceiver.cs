@@ -32,7 +32,7 @@ namespace extOSC.Examples
 			float value = float.Parse(message.Values[0].StringValue);
 			value = value / 10000000;
 			Debug.Log(value);
-            transform.position = new Vector3(value, transform.position.y, transform.position.z);
+            transform.Translate(value, transform.position.y, transform.position.z);
         }
 
         #endregion
