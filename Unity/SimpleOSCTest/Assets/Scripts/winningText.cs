@@ -10,13 +10,11 @@ public class winningText : MonoBehaviour
     void Start()
     {
         mText = gameObject.GetComponent<TextMeshProUGUI>();
-        int[] scores = BallMovement.getScores();
-        mText.text = scores[0]  + " - " + scores[1];
     }
 
     void Update()
     {
         int[] scores = BallMovement.getScores();
-        mText.text = scores[0]  + " - " + scores[1];
+        mText.text = scores[0]  + "\n-\n" + scores[1];
     }
 }
