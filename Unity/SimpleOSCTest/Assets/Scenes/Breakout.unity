@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53a67dc0f17b47c3bf8e26a08cfbb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   player: 1
   tracking: 0
 --- !u!68 &3923317
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4ac4361e6e7049c08e517077fc86ba4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1397.02, y: -566.8098, z: 21.714844}
+  m_LocalPosition: {x: -1392.12, y: -566.8098, z: 21.714844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -282,7 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4043274b57c4c039efe20febc16183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: /OSCAR/1
+  Address: /Player/1
+  offset: 0
   Receiver: {fileID: 1860409812}
 --- !u!1 &124376407
 GameObject:
@@ -1308,11 +1309,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7451938627fd04429b1b51891f814dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 6
+  startSpeed: 4
   extraSpeed: 0.5
-  maxSpeed: 0.8
+  maxSpeed: 0.7
   gravity: 1
-  maxScore: 50
+  maxScore: 400
   scoreTxtPlayerOne: {fileID: 1968297927}
   scoreTxtPlayerTwo: {fileID: 916875475}
 --- !u!82 &612835066
@@ -1937,7 +1938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &782495539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,11 +1951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7451938627fd04429b1b51891f814dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 6
+  startSpeed: 4
   extraSpeed: 0.5
-  maxSpeed: 0.8
+  maxSpeed: 0.7
   gravity: 1
-  maxScore: 50
+  maxScore: 400
   scoreTxtPlayerOne: {fileID: 1968297927}
   scoreTxtPlayerTwo: {fileID: 916875475}
 --- !u!114 &782495540
@@ -3380,7 +3381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190957230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1387.6, y: -566.8098, z: 21.714844}
+  m_LocalPosition: {x: -1392.22, y: -566.8098, z: 21.714844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3401,7 +3402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4043274b57c4c039efe20febc16183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: /OSCAR/1
+  Address: /Player/2
+  offset: 0
   Receiver: {fileID: 1860409812}
 --- !u!114 &1190957233
 MonoBehaviour:
@@ -3427,7 +3429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53a67dc0f17b47c3bf8e26a08cfbb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   player: 2
   tracking: 0
 --- !u!68 &1190957235
@@ -3502,7 +3504,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4ac4361e6e7049c08e517077fc86ba4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
