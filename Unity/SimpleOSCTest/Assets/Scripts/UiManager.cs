@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class UiManager : MonoBehaviour
     public GameObject ingameUI;
     public GameObject optionsScreen;
     public GameObject game;
+    public GameObject pauseMenuFirstSelected, optionsMenuFirstSelected;
+
     private AudioListener audioListener;
     private Toggle soundToggle;
     private bool running = true;
@@ -28,12 +31,18 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && running)
+        if (Input.GetButtonDown("Cancel") && running)
         {
             PauseGame();
-        } else if (Input.GetKeyDown(KeyCode.Escape) && !running) {
-            ResumeGame();
         }
+        else if (Input.GetButtonDown("Cancel") && !running)
+        {
+            if (pauseScreen && pauseScreen.activeSelf) {
+                ResumeGame();
+            } else if(optionsScreen && optionsScreen.activeSelf) {
+                PauseGame();
+            }
+        }   
     }
 
     public void PauseGame()
@@ -41,7 +50,10 @@ public class UiManager : MonoBehaviour
         running = false;
         pauseScreen.SetActive(true);
         ingameUI.SetActive(false);
-        game.SetActive(false);
+        game.SetActive(false);        
+        optionsScreen.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseMenuFirstSelected);
     }
 
     public void ResumeGame()
@@ -68,12 +80,15 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void openOptionsIngame() {
+    public void openOptionsIngame()
+    {
         optionsScreen.SetActive(true);
         running = false;
         pauseScreen.SetActive(false);
         ingameUI.SetActive(false);
         game.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionsMenuFirstSelected);
     }
 
     public void quitGame()
@@ -81,12 +96,16 @@ public class UiManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void toggleSound() {
-        if (soundEnabled) {
+    public void toggleSound()
+    {
+        if (soundEnabled)
+        {
             soundEnabled = false;
             audioListener.enabled = false;
             soundToggle.isOn = false;
-        } else {
+        }
+        else
+        {
             soundEnabled = true;
             audioListener.enabled = true;
             soundToggle.isOn = true;
