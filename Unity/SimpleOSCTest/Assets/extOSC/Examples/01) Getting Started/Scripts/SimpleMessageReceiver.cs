@@ -28,7 +28,7 @@ namespace extOSC.Examples
 
         private void ReceivedMessage(OSCMessage message)
         {
-            Debug.LogFormat("Received: {0}", message);
+            //Debug.LogFormat("Received: {0}", message);
 			float value = float.Parse(message.Values[0].StringValue);
 			value = value / 100000000;
 			Debug.Log(value);
