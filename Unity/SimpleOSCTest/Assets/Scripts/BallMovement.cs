@@ -14,8 +14,8 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float maxScore = 10;
     
     private float hitCounter = 0;
-    public static int scorePlayerOne = 0;
-    public static int scorePlayerTwo = 0;
+    static int scorePlayerOne = 0;
+    static int scorePlayerTwo = 0;
 
     private AudioSource source;
 
@@ -124,6 +124,13 @@ public class BallMovement : MonoBehaviour
     void PauseGame()
     {
         Time.timeScale = 0;
+    }
+
+    public static int[] getScores() {
+        int[] scores = new int[2];
+        scores[0] = scorePlayerOne;
+        scores[1] = scorePlayerTwo;
+        return scores;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
