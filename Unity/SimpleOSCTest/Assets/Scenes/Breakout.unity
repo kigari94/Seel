@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4043274b57c4c039efe20febc16183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: /OSCAR/1
+  Address: /Player/1
   Receiver: {fileID: 1860409812}
 --- !u!1 &124376407
 GameObject:
@@ -3401,7 +3401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4043274b57c4c039efe20febc16183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: /OSCAR/1
+  Address: /Player/2
   Receiver: {fileID: 1860409812}
 --- !u!114 &1190957233
 MonoBehaviour:
