@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class winningText : MonoBehaviour
 {
-    public BallMovement ballMovement;
     private TextMeshProUGUI mText;
 
     void Start()

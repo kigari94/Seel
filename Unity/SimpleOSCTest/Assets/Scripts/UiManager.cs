@@ -69,7 +69,8 @@ public class UiManager : MonoBehaviour
     }
 
     public void initGame()
-    {
+    {   
+        BallMovement.resetScores();
         SceneManager.LoadScene(1);
     }
 

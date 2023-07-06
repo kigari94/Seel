@@ -133,6 +133,11 @@ public class BallMovement : MonoBehaviour
         return scores;
     }
 
+    public static void resetScores() {
+        scorePlayerOne = 0;
+        scorePlayerTwo = 0;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 normal = collision.GetContact(0).normal;
