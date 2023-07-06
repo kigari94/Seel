@@ -37,12 +37,15 @@ public class UiManager : MonoBehaviour
         }
         else if (Input.GetButtonDown("Cancel") && !running)
         {
-            if (pauseScreen && pauseScreen.activeSelf) {
+            if (pauseScreen && pauseScreen.activeSelf)
+            {
                 ResumeGame();
-            } else if(optionsScreen && optionsScreen.activeSelf) {
+            }
+            else if (optionsScreen && optionsScreen.activeSelf)
+            {
                 PauseGame();
             }
-        }   
+        }
     }
 
     public void PauseGame()
@@ -50,7 +53,7 @@ public class UiManager : MonoBehaviour
         running = false;
         pauseScreen.SetActive(true);
         ingameUI.SetActive(false);
-        game.SetActive(false);        
+        game.SetActive(false);
         optionsScreen.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseMenuFirstSelected);
