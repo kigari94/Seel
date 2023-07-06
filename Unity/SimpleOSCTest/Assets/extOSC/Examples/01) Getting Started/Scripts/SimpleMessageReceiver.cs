@@ -15,6 +15,7 @@ namespace extOSC.Examples
 
         [Header("OSC Settings")]
         public OSCReceiver Receiver;
+        private Vector3 initPos;
 
         #endregion
 
@@ -23,6 +24,7 @@ namespace extOSC.Examples
         protected virtual void Start()
         {
             Receiver.Bind(Address, ReceivedMessage);
+            initPos = transform.position;
         }
 
         #endregion
@@ -35,10 +37,8 @@ namespace extOSC.Examples
             string valueString = message.Values[0].StringValue;
             float value = (float) Convert.ToDouble(valueString, CultureInfo.GetCultureInfo("en-US")) + offset;
 			Debug.Log(value);
-            if(value <= -0.1 || value >= 0.1)
-            {
-                transform.Translate(value * 1.2f, 0, 0);
-            }
+            transform.position = initPos + new Vector3((value * 10),0,0);
+            Debug.Log("Result: " + transform.position);
         }
 
         #endregion

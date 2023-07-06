@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1392.15, y: -566.8098, z: 21.714844}
+  m_LocalPosition: {x: -1392.12, y: -566.8098, z: 21.714844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Address: /Player/1
-  offset: 0.5
+  offset: 0
   Receiver: {fileID: 1860409812}
 --- !u!1 &124376407
 GameObject:
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   extraSpeed: 0.5
   maxSpeed: 0.7
   gravity: 1
-  maxScore: 1000
+  maxScore: 400
   scoreTxtPlayerOne: {fileID: 1968297927}
   scoreTxtPlayerTwo: {fileID: 916875475}
 --- !u!82 &612835066
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   extraSpeed: 0.5
   maxSpeed: 0.7
   gravity: 1
-  maxScore: 1000
+  maxScore: 400
   scoreTxtPlayerOne: {fileID: 1968297927}
   scoreTxtPlayerTwo: {fileID: 916875475}
 --- !u!114 &782495540
@@ -3381,7 +3381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190957230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1387.6, y: -566.8098, z: 21.714844}
+  m_LocalPosition: {x: -1392.22, y: -566.8098, z: 21.714844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Address: /Player/2
-  offset: -0.5
+  offset: 0
   Receiver: {fileID: 1860409812}
 --- !u!114 &1190957233
 MonoBehaviour:
